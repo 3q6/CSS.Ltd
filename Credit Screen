@@ -1,0 +1,29 @@
+wait(85)
+
+local text = "Credits to SlightSightDev for the Credit screen lol."
+
+local player = script.Parent.Parent
+local gui = script.Parent
+local sound = Instance.new("Sound",gui)
+sound.SoundId = "http://www.roblox.com/asset/?id=14863866"
+sound.Pitch = 0
+sound.Volume = 0
+local frame = gui.Frame
+local text1 = frame.TextLabel
+wait(1)
+for i = 1,string.len(text),1 do
+sound:play()
+text1.Text = string.sub(text,1,i)
+wait(0.1)
+end
+coroutine.resume(coroutine.create(function()
+for i = 0,20,0.01 do
+text1.Position = UDim2.new(0,0,i,0)
+wait()
+end
+end))
+for i = 1,50,1 do
+text1.TextTransparency = text1.TextTransparency + 0.02
+wait(0.02)
+end
+gui:remove()
